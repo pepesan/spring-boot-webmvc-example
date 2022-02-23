@@ -8,7 +8,10 @@ public class HelloController {
 
     @GetMapping("/")
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "<html>" +
+                "<p>Greetings from Spring Boot!</p>"+
+                "<p><a href='/mvc'>Ejemplos de MVC</a>"+
+                "</html>";
     }
 
 }
