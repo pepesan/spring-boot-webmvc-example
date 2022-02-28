@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.app.miapp.domain.onetoone.repositories;
+package com.cursosdedesarrollo.app.miapp.repositories.onetoone;
 
 import com.cursosdedesarrollo.app.miapp.domain.onetoone.entities.PhoneDetails;
 import org.springframework.data.jpa.repository.JpaRepository;

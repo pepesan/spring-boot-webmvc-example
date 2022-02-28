@@ -1,11 +1,9 @@
-package com.cursosdedesarrollo.app.miapp.controllers;
+package com.cursosdedesarrollo.app.miapp.controllers.onetoone;
 
-import com.cursosdedesarrollo.app.miapp.domain.Alumno;
 import com.cursosdedesarrollo.app.miapp.domain.onetoone.entities.Phone;
 import com.cursosdedesarrollo.app.miapp.domain.onetoone.entities.PhoneDetails;
-import com.cursosdedesarrollo.app.miapp.domain.onetoone.repositories.PhoneDetailsRepository;
-import com.cursosdedesarrollo.app.miapp.domain.onetoone.repositories.PhoneRepository;
-import com.cursosdedesarrollo.app.miapp.repositories.AlumnoRepository;
+import com.cursosdedesarrollo.app.miapp.repositories.onetoone.PhoneDetailsRepository;
+import com.cursosdedesarrollo.app.miapp.repositories.onetoone.PhoneRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
