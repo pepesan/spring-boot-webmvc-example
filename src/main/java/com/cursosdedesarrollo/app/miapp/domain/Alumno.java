@@ -5,11 +5,13 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Data
 @Entity(name = "Alumnos")
+@Table(name = "ALUMNOS")
 public class Alumno {
 
     @Id
