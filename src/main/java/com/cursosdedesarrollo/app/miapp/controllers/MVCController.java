@@ -3,9 +3,7 @@ package com.cursosdedesarrollo.app.miapp.controllers;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,5 +22,16 @@ public class MVCController {
         model.addAttribute("tasks", tasks);
 
         return "welcome"; //view
+    }
+
+    @GetMapping("/params/{id}")
+    public String cogeParametros(@PathVariable("id") String id, Model model){
+        model.addAttribute("id",id);
+        return "params";
+    }
+    @PostMapping()
+    public String miPost(Model model, @RequestParam("id") String id){
+        model.addAttribute("id",id);
+        return "params";
     }
 }
