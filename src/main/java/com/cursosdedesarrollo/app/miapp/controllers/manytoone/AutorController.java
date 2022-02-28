@@ -2,7 +2,6 @@ package com.cursosdedesarrollo.app.miapp.controllers.manytoone;
 
 import com.cursosdedesarrollo.app.miapp.domain.manytoone.Autor;
 import com.cursosdedesarrollo.app.miapp.domain.manytoone.Libro;
-import com.cursosdedesarrollo.app.miapp.domain.onetoone.entities.Phone;
 import com.cursosdedesarrollo.app.miapp.repositories.manytoone.AutorRepository;
 import com.cursosdedesarrollo.app.miapp.repositories.manytoone.LibroRepository;
 import org.slf4j.Logger;
