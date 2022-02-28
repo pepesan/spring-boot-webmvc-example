@@ -2,8 +2,6 @@ package com.cursosdedesarrollo.app.miapp.domain;
 
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Persona {
