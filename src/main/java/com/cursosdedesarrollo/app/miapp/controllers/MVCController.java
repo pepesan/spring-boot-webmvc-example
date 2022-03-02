@@ -18,6 +18,8 @@ public class MVCController {
     private final List<String> tasks = Arrays.asList("a", "b", "c", "d", "e", "f", "g");
     @GetMapping()
     public String main(Model model) {
+        String cadena = "Valor Cadena";
+        model.addAttribute("cadena", cadena);
         model.addAttribute("message", message);
         model.addAttribute("tasks", tasks);
 
