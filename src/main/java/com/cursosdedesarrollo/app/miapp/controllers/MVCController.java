@@ -31,6 +31,15 @@ public class MVCController {
         model.addAttribute("id",id);
         return "params";
     }
+    @GetMapping("/params/{id}/{otro}")
+    public String cogeDosParametros(
+            @PathVariable("id") String id,
+            @PathVariable("otro") Long otro,
+            Model model){
+        model.addAttribute("id",id);
+        model.addAttribute("numero",otro);
+        return "dosparams";
+    }
     @PostMapping()
     public String miPost(Model model, @RequestParam("id") String id){
         model.addAttribute("id",id);
