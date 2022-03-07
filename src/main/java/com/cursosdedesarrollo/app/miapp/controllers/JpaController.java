@@ -30,7 +30,7 @@ public class JpaController {
 
     @GetMapping()
     public String lista(Model modelo) {
-        List<Alumno> alumnos = alumnoRepository.findAll();
+        this.alumnos = alumnoRepository.findAll();
         modelo.addAttribute("alumnos", alumnos);
         return "listadojpa";
 
