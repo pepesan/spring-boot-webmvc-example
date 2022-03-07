@@ -1,6 +1,7 @@
 package com.cursosdedesarrollo.app.miapp.controllers;
 
 import com.cursosdedesarrollo.app.miapp.domain.Persona;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,4 +32,18 @@ public class FormularioController {
         model.setViewName(result.hasErrors() ? "form" : "personaReady");
         return model;
     }
+    // otro ejemplo de uso de recepción del formulario
+    /*
+    @PostMapping("/create")
+    public String newCreateUser(@Valid Persona persona, BindingResult result, Model model) {
+        model.addAttribute("persona", persona);
+        String template = "";
+        if (result.hasErrors()){
+            template  =  "form";
+        }else {
+            template  = "personaReady";
+        }
+        return template;
+    }
+    */
 }

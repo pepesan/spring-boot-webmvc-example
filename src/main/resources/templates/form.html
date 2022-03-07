@@ -6,7 +6,7 @@
         </ul>
     </div>
     <fieldset>
-        <legend>Datos del usuario</legend>
+        <legend th:text="#{form.user.legend_text}">Datos del usuario</legend>
         <table>
             <tr>
                 <td><label th:text="#{form.user.nombre}">Nombre: </label></td>
@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>
-                    <button type="submit">Registrar...</button>
+                    <button th:text="#{form.user.submit}" type="submit">Registrar...</button>
                 </td>
             </tr>
         </table>
