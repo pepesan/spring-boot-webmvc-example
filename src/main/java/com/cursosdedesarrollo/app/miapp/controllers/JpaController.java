@@ -65,7 +65,7 @@ public class JpaController {
         if (alumno.isPresent()){
             modelo.addAttribute("alumno", alumno.get());
         }else{
-            modelo.addAttribute("alumno", new Alumno());
+            return "404";
         }
 
         return "showalumno";
@@ -81,7 +81,7 @@ public class JpaController {
             alumnoRepository.save(alumnoRegistry);
             modelo.addAttribute("alumno", alumnoRegistry);
         }else{
-            modelo.addAttribute("alumno", new Alumno());
+            return "404";
         }
 
         return "showalumno";
@@ -96,7 +96,7 @@ public class JpaController {
             alumnoRepository.delete(alumnoRegistry);
             modelo.addAttribute("alumno", alumnoRegistry);
         }else{
-            modelo.addAttribute("alumno", new Alumno());
+            return "404";
         }
 
         return "showalumno";
