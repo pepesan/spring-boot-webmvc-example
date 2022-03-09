@@ -18,8 +18,6 @@ public class MVCController {
     private final List<String> tasks = Arrays.asList("a", "b", "c", "d", "e", "f", "g");
     @GetMapping()
     public String main(Model model) {
-        String cadena = "Valor Cadena";
-        model.addAttribute("cadena", cadena);
         model.addAttribute("message", message);
         model.addAttribute("tasks", tasks);
 
@@ -30,15 +28,6 @@ public class MVCController {
     public String cogeParametros(@PathVariable("id") String id, Model model){
         model.addAttribute("id",id);
         return "params";
-    }
-    @GetMapping("/params/{id}/{otro}")
-    public String cogeDosParametros(
-            @PathVariable("id") String id,
-            @PathVariable("otro") Long otro,
-            Model model){
-        model.addAttribute("id",id);
-        model.addAttribute("numero",otro);
-        return "dosparams";
     }
     @PostMapping()
     public String miPost(Model model, @RequestParam("id") String id){
