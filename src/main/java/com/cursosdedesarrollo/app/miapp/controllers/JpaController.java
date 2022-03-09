@@ -6,12 +6,17 @@ import com.cursosdedesarrollo.app.miapp.services.AlumnoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -122,6 +127,23 @@ public class JpaController {
     public String search(Model modelo) {
         Collection<Alumno> listado = this.alumnoRepository
                 .findAll43Alumnos();
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
+    @GetMapping("/searchbypage")
+    public String searchFirstByPage(
+            Model modelo,
+            @RequestParam("page") Integer page,
+            @RequestParam("size") Integer size) {
+        if (page==null){
+            page = 0;
+        }
+        if (size==null){
+            size=0;
+        }
+        PageRequest firstPageWithTwoElements = PageRequest.of(page, size);
+        //firstPageWithTwoElements = PageRequest.of(page, size, Sort.by("nombre").descending());
+        Page<Alumno> listado = alumnoRepository.findAll(firstPageWithTwoElements);
         modelo.addAttribute("alumnos", listado);
         return "listadojpa";
     }
