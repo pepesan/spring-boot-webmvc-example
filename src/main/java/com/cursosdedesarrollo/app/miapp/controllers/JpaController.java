@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -133,13 +132,13 @@ public class JpaController {
     @GetMapping("/searchbypage")
     public String searchFirstByPage(
             Model modelo,
-            @RequestParam("page") Integer page,
-            @RequestParam("size") Integer size) {
+            @RequestParam(name = "page", required = false) Integer page,
+            @RequestParam(name = "size", required = false) Integer size) {
         if (page==null){
             page = 0;
         }
         if (size==null){
-            size=0;
+            size=10;
         }
         PageRequest firstPageWithTwoElements = PageRequest.of(page, size);
         //firstPageWithTwoElements = PageRequest.of(page, size, Sort.by("nombre").descending());
