@@ -18,7 +18,7 @@ public class FormularioController {
     @GetMapping()
     public String lista(Model modelo) {
 
-        Persona persona= new Persona(0L,"","",0);
+        Persona persona= new Persona("","",0);
 
         modelo.addAttribute("persona", persona);
         return "form";

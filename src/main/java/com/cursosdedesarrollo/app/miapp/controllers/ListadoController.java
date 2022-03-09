@@ -15,9 +15,9 @@ public class ListadoController {
     @GetMapping()
     public String lista(Model modelo) {
 
-        Persona p1= new Persona(0L,"pedro","perez",20);
-        Persona p2= new Persona(1L,"ana","gomez",30);
-        Persona p3= new Persona(2L,"gema","alvarez",40);
+        Persona p1= new Persona("pedro","perez",20);
+        Persona p2= new Persona("ana","gomez",30);
+        Persona p3= new Persona("gema","alvarez",40);
 
         List<Persona> personas= Arrays.asList(p1,p2,p3);
         modelo.addAttribute("personas", personas);
