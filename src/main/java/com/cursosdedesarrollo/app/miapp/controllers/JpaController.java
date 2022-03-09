@@ -2,6 +2,7 @@ package com.cursosdedesarrollo.app.miapp.controllers;
 
 import com.cursosdedesarrollo.app.miapp.domain.Alumno;
 import com.cursosdedesarrollo.app.miapp.repositories.AlumnoRepository;
+import com.cursosdedesarrollo.app.miapp.services.AlumnoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -95,6 +97,55 @@ public class JpaController {
 
         return "showalumno";
 
+    }
+
+    @GetMapping("/search/by/{name}")
+    public String searchByNombre(Model modelo, @PathVariable("name")String nombre) {
+        List<Alumno> listado = this.alumnoRepository.findByNombre(nombre);
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
+
+    @GetMapping("/search/by/{name}/{apellidos}")
+    public String searchByNombreAndApellido(
+            Model modelo,
+            @PathVariable("name")String nombre,
+            @PathVariable("apellidos")String apellidos
+    ) {
+        List<Alumno> listado = this.alumnoRepository
+                .findByNombreAndApellidos(nombre, apellidos);
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
+
+    @GetMapping("/search")
+    public String search(Model modelo) {
+        Collection<Alumno> listado = this.alumnoRepository
+                .findAll43Alumnos();
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
+    @GetMapping("/search/bycosas/{nombre}/{edad}")
+    public String searchByCosas(
+            Model modelo,
+            @PathVariable("nombre")String nombre,
+            @PathVariable("edad")Integer edad) {
+        Collection<Alumno> listado = this.alumnoRepository
+                .findAlumnosByOtrasCosas(nombre,edad);
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
+
+    @Autowired
+    private AlumnoService alumnoService;
+    @GetMapping("/search/first/bycosas/{nombre}/{edad}")
+    public String searchFirstByCosas(
+            Model modelo,
+            @PathVariable("nombre")String nombre,
+            @PathVariable("edad")Integer edad) {
+        Alumno alumno = this.alumnoService.getFirstByCosas(nombre,edad);
+        modelo.addAttribute("alumno", alumno);
+        return "showalumno";
     }
 
 }
