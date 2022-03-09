@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 @Entity
 //@Entity(name = "Alumnos")
 //@Table(name = ""ALUMNOS)
+//@NamedNativeQuery(name = "Alumno.findByCosa", query = "SELECT * FROM Alumno WHERE nombre = ?", resultClass = Alumno.class)
 public class Alumno {
 
     @Id
