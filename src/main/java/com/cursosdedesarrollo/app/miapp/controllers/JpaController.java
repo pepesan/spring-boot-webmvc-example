@@ -43,9 +43,9 @@ public class JpaController {
     }
     @GetMapping("/insert")
     public String insert(Model modelo) {
-        Integer actualSize= alumnoRepository.findAll().size();
+        Long actualSize= alumnoRepository.count();
         logger.trace("/mvc/insert: actualSize="+actualSize);
-        if ( actualSize.equals(0)){
+        if ( actualSize.equals(0L)){
             Alumno alumno = new Alumno();
             alumno.setNombre("Pepe");
             alumno.setApellidos("San");
@@ -143,7 +143,9 @@ public class JpaController {
         PageRequest firstPageWithTwoElements = PageRequest.of(page, size);
         //firstPageWithTwoElements = PageRequest.of(page, size, Sort.by("nombre").descending());
         Page<Alumno> listado = alumnoRepository.findAll(firstPageWithTwoElements);
+        Long maxNumber = alumnoRepository.count();
         modelo.addAttribute("alumnos", listado);
+        modelo.addAttribute("maxNumber", maxNumber);
         return "listadojpa";
     }
     @GetMapping("/search/bycosas/{nombre}/{edad}")
