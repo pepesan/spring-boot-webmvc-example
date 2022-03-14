@@ -11,6 +11,7 @@
 <table>
     <tr th:each="technician: ${tecnicos}">
         <td th:text="${technician.id}" />
+        <td th:text="${technician.name}" />
         <td th:text="${technician.experienceYears}" />
     </tr>
 </table>

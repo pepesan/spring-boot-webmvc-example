@@ -11,20 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/herencia")
 public class HerenciaController {
     @Autowired
     public TechinicianService techinicianService;
 
     @GetMapping()
-    public List<Technician> getJaveros (){
+    public String getJaveros (Model modelo){
         List<Technician> tecnicos = this.techinicianService.findAll();
         System.out.println(tecnicos);
-        return tecnicos;
+        modelo.addAttribute("tecnicos", tecnicos);
+        return "herencia/listado";
     }
     @GetMapping("/insert")
-    public List<Technician> insertJaveros (){
+    public String insertJaveros (Model modelo){
         Technician technician= new Technician();
         technician.setName("Pepe");
         technician.setExperienceYears(10);
@@ -32,6 +33,7 @@ public class HerenciaController {
         System.out.println(technician);
         List<Technician> tecnicos = this.techinicianService.findAll();
         System.out.println(tecnicos);
-        return tecnicos;
+        modelo.addAttribute("tecnicos", tecnicos);
+        return "herencia/listado";
     }
 }
