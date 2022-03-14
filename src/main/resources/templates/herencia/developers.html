@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/mvc">Volver</a></li>
+        <li><a href="/developer">Listado Developer</a></li>
+        <li><a href="/developer/insert">Insertar Developer</a></li>
+    </ul>
+</nav>
+<h2>Tabla de Listado</h2>
+<table>
+    <tr th:each="technician: ${tecnicos}">
+        <td th:text="${technician.id}" />
+        <td th:text="${technician.name}" />
+        <td th:text="${technician.experienceYears}" />
+        <td th:text="${technician.expertLanguajes}" />
+    </tr>
+</table>
+</body>
+</html>
