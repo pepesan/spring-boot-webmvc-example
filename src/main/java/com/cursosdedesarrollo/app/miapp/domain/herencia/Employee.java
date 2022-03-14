@@ -25,7 +25,7 @@ public class Employee {
         this.name= "";
         this.email = "";
         this.nif = "";
-        this.id =0L;
+        //this.id =0L;
         this.phone = "";
     }
 
