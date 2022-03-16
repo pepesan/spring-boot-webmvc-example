@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/country">Volver</a></li>
+        <li><a href="/country/insert">Inserta</a></li>
+        <li><a href="/country/show/1">Show by ID</a></li>
+        <li><a href="/country/update/1">Update by ID</a></li>
+        <li><a href="/country/delete/1">Delete by ID</a></li>
+        <li><a href="/country/searchbypage?page=0&size=2">Búsqueda con paginación (0,2)</a> </li>
+    </ul>
+</nav>
+<table>
+    <tr th:each="item: ${listado}">
+        <td th:text="${item.id}" />
+        <td th:text="${item.name}" />
+    </tr>
+</table>
+</body>
+</html>
