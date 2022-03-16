@@ -13,7 +13,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/country")
 public class CountryController {
-    private final CountryRepository countryRepository;
+
+    private CountryRepository countryRepository;
 
     @Autowired
     public CountryController(CountryRepository countryRepository) {
@@ -24,6 +25,13 @@ public class CountryController {
         List<Country> listado = this.countryRepository.findAll();
         modelo.addAttribute("listado", listado);
         return "country/listado";
+    }
+
+    public CountryRepository getCountryRepository(){
+        return countryRepository;
+    }
+    public void setCountryRepository(CountryRepository countryRepository){
+        this.countryRepository= countryRepository;
     }
 
 
