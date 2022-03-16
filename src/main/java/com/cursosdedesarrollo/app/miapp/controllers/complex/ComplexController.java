@@ -1,6 +1,5 @@
-package com.cursosdedesarrollo.app.miapp.controllers;
+package com.cursosdedesarrollo.app.miapp.controllers.complex;
 
-import com.cursosdedesarrollo.app.miapp.domain.Alumno;
 import com.cursosdedesarrollo.app.miapp.domain.complex.Group;
 import com.cursosdedesarrollo.app.miapp.domain.complex.User;
 import com.cursosdedesarrollo.app.miapp.domain.complex.UserGroup;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.LongStream;
 
 @Controller
 @RequestMapping("/complex")
