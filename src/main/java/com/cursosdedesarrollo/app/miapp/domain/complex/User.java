@@ -5,22 +5,20 @@ import lombok.ToString;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "USERS")
 @ToString
 public class User {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "USER_ID")
     private Long id;
     private String username;
     private String password;
     private String email;
-
+    @OneToMany(mappedBy = "user")
     private Set<UserGroup> userGroups = new HashSet<UserGroup>();
 
     public User() {
@@ -36,9 +34,7 @@ public class User {
         this.userGroups.add(group);
     }
 
-    @Id
-    @GeneratedValue
-    @Column(name = "USER_ID")
+
     public Long getId() {
         return id;
     }
@@ -71,7 +67,7 @@ public class User {
         this.email = email;
     }
 
-    @OneToMany(mappedBy = "user")
+
     public Set<UserGroup> getUserGroups() {
         return userGroups;
     }

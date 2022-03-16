@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class Etiqueta {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     private String nombre;
