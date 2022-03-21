@@ -14,13 +14,27 @@
     <tr th:each="item: ${listado}">
         <td th:text="${item.id}" />
         <td th:text="${item.username}" />
+        <td th:text="${item.userGroups.size() > 0}"></td>
+        <td th:if="${item.userGroups.size() > 0}">True</td>
         <table>
-            <tr th:each="ug: ${item.userGroups}">
+            <tr th:each="ug: ${item.getUserGroups()}">
                 <td th:text="${ug.id}" />
                 <td th:text="${ug.group.id}" />
                 <td th:text="${ug.group.name}" />
             </tr>
         </table>
+    </tr>
+</table>
+<h2>Listado User Group</h2>
+<table>
+    <tr th:each="item: ${listadoUserGroup}">
+        <td th:text="${item.id}" />
+        <td th:text="${item.activated}" />
+
+        <td th:text="${item.user.id}"></td>
+        <td th:text="${item.user.username}"></td>
+        <td th:text="${item.group.id}"></td>
+        <td th:text="${item.group.name}"></td>
     </tr>
 </table>
 </body>

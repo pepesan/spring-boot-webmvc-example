@@ -64,7 +64,7 @@ public class ComplexController {
             logger.trace(group2.toString());
             System.out.println("/mvc/insert: group="+group2);
             UserGroup userGroup = new UserGroup();
-            //userGroup.setUser(user);
+            userGroup.setUser(user);
             userGroup.setGroup(group);
             userGroup.setActivated(true);
             userGroup.setRegisteredDate(new Date());
@@ -72,29 +72,33 @@ public class ComplexController {
             logger.trace(userGroup.toString());
             System.out.println("/mvc/insert: usergroup="+userGroup);
             UserGroup userGroup2 = new UserGroup();
-            //userGroup2.setUser(user);
+            userGroup2.setUser(user);
             userGroup2.setGroup(group2);
             userGroup2.setActivated(true);
             userGroup2.setRegisteredDate(new Date());
             userGroupRepository.save(userGroup2);
-
-            user.getUserGroups().add(userGroup);
-            user.getUserGroups().add(userGroup2);
-            userRepository.save(user);
             /*
-
             group.getUserGroups().add(userGroup);
             groupRepository.save(group);
             group2.getUserGroups().add(userGroup2);
             groupRepository.save(group2);
 
-             */
+            user.getUserGroups().add(userGroup);
+            user.getUserGroups().add(userGroup2);
+            userRepository.save(user);
+            */
+
             logger.trace(userGroup.toString());
             System.out.println("/mvc/insert: usergroup="+userGroup);
 
         }
         List<User> usuarios = userRepository.findAll();
         modelo.addAttribute("listado", usuarios);
+        List<Group> listadoGroup = groupRepository.findAll();
+        System.out.println(listadoGroup);
+        List<UserGroup> listadoUserGroup = userGroupRepository.findAll();
+        System.out.println(listadoUserGroup);
+        modelo.addAttribute("listadoUserGroup", listadoUserGroup);
         System.out.println(usuarios);
         return "complex/listado";
 
