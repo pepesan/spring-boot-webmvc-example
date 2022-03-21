@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/mvc">Volver</a></li>
+        <li><a href="/herencia">Listado Herencia</a></li>
+        <li><a href="/herencia/insert">Insertar Herencia</a></li>
+    </ul>
+</nav>
+<h2>Tabla de Listado</h2>
+<table>
+    <tr th:each="technician: ${tecnicos}">
+        <td th:text="${technician.id}" />
+        <td th:text="${technician.name}" />
+        <td th:text="${technician.experienceYears}" />
+    </tr>
+</table>
+</body>
+</html>

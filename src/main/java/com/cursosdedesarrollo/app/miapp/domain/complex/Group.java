@@ -42,7 +42,7 @@ public class Group {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     public Set<UserGroup> getUserGroups() {
         return userGroups;
     }
