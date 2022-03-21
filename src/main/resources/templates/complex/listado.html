@@ -14,6 +14,13 @@
     <tr th:each="item: ${listado}">
         <td th:text="${item.id}" />
         <td th:text="${item.username}" />
+        <table>
+            <tr th:each="ug: ${item.userGroups}">
+                <td th:text="${ug.id}" />
+                <td th:text="${ug.group.id}" />
+                <td th:text="${ug.group.name}" />
+            </tr>
+        </table>
     </tr>
 </table>
 </body>
